@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, escape
 import subprocess, yaml, base64, pickle, hashlib
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def parse_yaml():
     s = request.args.get("data", "{}")
     # ❌ unsafe YAML load (no SafeLoader)
     data = yaml.load(s)
-    return str(data)
+    return escape(str(data))
 
 @app.route("/pickle")
 def do_pickle():
