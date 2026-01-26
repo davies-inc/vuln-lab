@@ -1,4 +1,4 @@
-FROM node:10.24.1
+FROM node:25.4.0
 WORKDIR /app
 
 # copy the whole JS app so we can install & run it
